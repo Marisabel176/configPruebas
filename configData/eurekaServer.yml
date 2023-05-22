@@ -1,14 +1,14 @@
 server:
-    port: ${PORT:8888}
+    port: 8761
 
 spring:
-  application:\
-    name: config-server\
-        cloud:
-        config:
-            server:
-                git:
-                    uri: https://github.com/Marisabel176/pruebasBCK.git
-                    default-label: main
-                    force-pull: true
-                    search-paths: config-data
+    application:
+        name: eurekaServer
+eureka:
+    instance:
+        hostname: localhost
+    client:
+        registerWithEureka: false
+        fetchRegistry: false
+        serviceUrl:
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
